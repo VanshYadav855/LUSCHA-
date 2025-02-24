@@ -1,0 +1,554 @@
+/*this is for nav bar heading and comapny name  */
+
+
+
+
+
+/* General Reset */
+body, h1, h2, h3, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header Section */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px; /* Smaller padding */
+    background-color: #03670b;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap; /* Allow for responsive wrapping */
+}
+
+/* Logo Style */
+header .logo img {
+    width: 80px; /* Adjust logo size */
+    height: auto;
+}
+
+/* Navbar Style */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px; /* Smaller padding */
+    width: auto;
+    flex-wrap: wrap; /* Allow for responsive wrapping */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 8px; /* Reduced margin */
+    font-size: 14px; /* Smaller font size */
+    padding: 6px 12px; /* Reduced padding */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #27ae60;
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url(media/Screenshot\ 2025-01-06\ at\ 5.52.31\ PM.png); /* Use the correct image path */
+    background-size: 50%; /* Ensure the image covers the entire hero section */
+    background-position: center; /* Keep the image centered */
+    height: 100vh; /* Make the section take full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+
+/* Overlay to darken the background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(6, 6, 6, 0.5); /* Darken the background further */
+    z-index: 1;
+}
+
+/* Content inside Hero Section */
+.hero .container {
+    position: relative;
+    z-index: 2; /* Ensures text is above the overlay */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+
+/* Call to Action Button */
+.cta-button {
+    background-color: #e6e8e7;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Hover Effect for Button */
+.cta-button:hover {
+    background-color: #2ecc71;
+    transform: scale(1.05);
+}
+
+/* Animations for fadeInUp */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+
+/* Adjust the navbar items for small screens */
+.navbar {
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.logo img {
+    width: 120px; /* Slightly reduce the logo size */
+}
+}
+
+/* Media Query for Smartphones */
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* Allow height to adjust for content on smaller screens */
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem; /* Adjust heading size */
+    }
+
+    .hero h2 {
+        font-size: 1.2rem; /* Adjust subheading size */
+    }
+
+    .hero .cta-button {
+        font-size: 1rem; /* Smaller button text */
+        padding: 10px 18px; /* Reduce button size */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Stack the navbar links vertically on very small screens */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar a {
+        margin: 5px 0;
+    }
+
+    .logo img {
+        width: 100px;
+    }
+
+}
+
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Media Query for Smartphones */
+@media (max-width: 480px) {
+    .navbar {
+        display: none; /* Initially hide the navbar */
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: left;
+        padding: 10px 15px;
+        font-size: 16px;
+        margin: 5px 0;
+    }
+
+    .hamburger {
+        display: flex; /* Show the hamburger menu */
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
+
+    .navbar.active {
+        display: flex; /* Show navbar when active */
+    }
+}
+
+
+
+/* Adjust the container for left alignment */
+.hero .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    text-align: left; /* Ensure content aligns to the left */
+}
+
+/* Hero Title */
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left; /* Left-align the heading */
+    margin-left: 0; /* Remove auto-centering */
+}
+
+/* Hero Subheading */
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: 0; /* Align to the left */
+    margin-right: auto; /* Ensure proper alignment */
+    text-align: left; /* Align text to the left */
+}
+
+/* Optional: CTA Button Left Alignment */
+.cta-button {
+    display: inline-block; /* Ensures button stays inline */
+    margin-left: 0; /* Align button to the left */
+}
+
+
+
+/*coffee benefits*/
+
+.features {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Gagalin', sans-serif;
+}
+
+.subheading {
+    font-size: 1.8rem;
+    color: #28a745;
+    margin-bottom: 40px;
+}
+
+/* Central Section Layout */
+.center-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 250px;
+    text-align: center;
+}
+
+.feature-item {
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: scale(1.05);
+}
+
+.feature-item img {
+    max-width: 60px;
+    margin-bottom: 10px;
+}
+
+.feature-item h3 {
+    font-size: 1.2rem;
+    color: #2d6a4f;
+    margin-bottom: 5px;
+}
+
+.feature-item p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Coffee Image Styling */
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image img {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    background-color: #f9f9f9;
+}
+
+/* Product Section */
+.products {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card .product-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.product-card .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    color: #2d6a4f;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-family: 'Gagalin', sans-serif;
+}
+
+.product-info p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.price {
+    display: block;
+    font-size: 1.5rem;
+    color: #2d6a4f;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.shop-now {
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.shop-now:hover {
+    background-color: #1a4031;
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .product-card .product-image {
+        height: 200px;
+    }
+    
+    .product-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .price {
+        font-size: 1.3rem;
+    }
+    
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2d6a4f;
+    margin-bottom: 50px;
+    font-family: 'Gagalin', sans-serif;
+}
+
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.reason-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px);
+}
+
+.reason-card h3 {
+    color: #2d6a4f;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.reason-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .reasons-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
